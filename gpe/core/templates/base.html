@@ -1,0 +1,101 @@
+{% load staticfiles %} <!-- PARA USAR O CAMINHO PADRAO STATIC_URL -->
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+	<head>
+		<meta charset="utf-8">
+
+		<title>{% block titulo %}{% endblock titulo %} - GPE</title>
+
+		<!-- CSS -->
+		<link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon.png" />
+		<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
+		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}css/jasny-bootstrap.min.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+		<!-- FIM CSS -->
+		<!-- JavaScript -->
+		<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+		<script src="{{ STATIC_URL }}js/core.js"></script>
+		<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+		<script src="{{ STATIC_URL }}js/jasny-bootstrap.min.js"></script>
+		<script src="{{ STATIC_URL }}js/bootstrap-datetimepicker.min.js"></script>
+
+		<!-- FIM JavaScript -->
+
+	</head>
+
+	<body>
+		<!-- MENU -->
+		<nav class="navbar navbar-inverse" role="navigation" style="padding: 0px 0px;margin:0px;border-radius:0px;">
+			<a class="navbar-brand" href="/" style="position: absolute; float:left; padding: 0px; margin:0px;" >
+				<img src="{{ STATIC_URL }}img/Logotipo.png" style="padding:0px 10px 0px 20px; margin:0px; max-width:30%;">
+			</a>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="/" data-toggle="collapse" style="position: absolute; float:left; padding: 0px; margin:15px 0px 0px 60px;" >
+						<img src="{{ STATIC_URL }}img/Slogam.png" style="padding:0px 15px; margin:0px; max-width:35%;" width="500px">
+					</a>					
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#IDnavbar" style="float:right;">
+						<span class="sr-only">Menu Mobile</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div id="IDnavbar" class="navbar-collapse collapse in" style="height: auto; margin:10px 0px;">
+					<div class="form-group">
+						<div class="row" style="float:inherit; margin:0px 10px 10px 10px;">
+							<ul class="nav navbar-nav" style="float:right;">
+								<li>
+									<div class="col-md-10" style="padding:15px 0px 15px 0px;">
+										<input id="textoBusca" class="form-control" type="text" placeholder="Usuário" value="" name="textoUsuario"></input>
+									</div>
+								</li>
+								<li>
+									<div class="col-md-10" style="padding: 15px 0px 15px 0px;">
+										<input id="textoBusca" class="form-control" type="password" placeholder="Senha" value="" name="textoSenha"></input>
+									</div>
+								</li>
+								<li>
+									<div class="col-md-2" align="center" style="padding:15px;">
+										<button type="submit" class="btn btn-primary">
+											Entrar <span class="glyphicon glyphicon-user"></span>
+										</button>
+								</li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- FIM MENU -->
+			<div class="container">
+			<!-- CONTEUDO -->
+				{% block conteudo %}{% endblock conteudo %}
+			<!-- FIM CONTEUDO -->
+			</div>
+		<!-- RODAPE -->
+		<footer style="margin-top:100px; padding=0px;">
+			<nav class="navbar navbar-inverse" role="navigation" style="border-radius:0px;margin-bottom:0px;">
+				<div class="container-fluid" style="">
+					<div class="collapse navbar-collapse" id="IDnavbar" style="float: center;">
+						<ul class="nav navbar-nav">
+							<li><a href="/pessoas/"> <spam class="glyphicon glyphicon-user"></spam> QUEM SOMOS </a></li>
+							<li style="font-size:30px;"> | </li>
+							<li><a href="/caixas/"> <spam class="glyphicon glyphicon-inbox"></spam> FALE CONOSCO </a></li>
+							<li style="font-size:30px;"> | </li>
+							<li><a href="/caixas/fluxo/"> <spam class="glyphicon glyphicon-stats"></spam> SOBRE </a></li>
+						</ul>
+					</div>
+				</div>
+				<div align="left">ID-Developers/SA &copy; 2014</div>
+			</nav>
+		</footer>
+		<!-- FIM RODAPE -->
+		
+	</body>
+</html>

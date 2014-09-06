@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Principal{% endblock titulo %}
+
+{% block conteudo %}
+	<div class="col-sm-6" align="center">
+		<section id="slide">
+			<header class="page-header" style="border-bottom: none;">    			
+			</header>
+			<section class="carousel slide" id="carrossel">
+				<div class="carousel-inner">
+					<figure class="active item">
+						<img src="{{ STATIC_URL }}img/slide/img01.jpg" alt="img01" />
+						<figcaption class="carousel-caption" style="text-align:left; left:0%; right:0%; bottom:0px; padding-bottom: 0px; background:#000000; opacity: 0.7; padding-top: 0px;">
+							<h4 style="margin-left: 1%; margin-right: 1%;">RexIntercom</h4>
+							<p style="margin-left: 1%; margin-right: 1%;">Suporte 24 horas!</p>
+						</figcaption>
+					</figure>
+					<figure class="item">
+						<img src="{{ STATIC_URL }}img/slide/img02.jpg" alt="img02" />
+						<figcaption class="carousel-caption" style="text-align:left; left:0%; right:0%; bottom:0px; padding-bottom: 0px; background:#000000; opacity: 0.7; padding-top: 0px;">
+							<h4 style="margin-left: 1%; margin-right: 1%;">RexIntercom</h4>
+							<p style="margin-left: 1%; margin-right: 1%;">Mobilidade e Tecnolgia em um só lugar</p>
+						</figcaption>
+					</figure>
+				</div>
+				<a href="#carrossel" class="carousel-control left" data-slide="prev"></spam>&lsaquo;</a>
+				<a href="#carrossel" class="carousel-control right" data-slide="next">&rsaquo;</a>
+			</section>	
+		</section>
+	</div>
+
+	<div class="col-sm-6" align="center">
+		<header class="page-header">
+			<h1>Abra uma conta -<small> É gratuito!</small></h1>
+		</header>
+		<form class="form-horizontal" action="/usuario/salvar/" method="POST" role="form">{% csrf_token %}
+
+			<input type="hidden" id="codigo" name="codigo" value="{{ pessoa.pk|default_if_none:'0' }}">
+
+			<div class="form-group">
+				<label for="idNome" class="col-sm-2 control-label">Dados Pessoais</label>
+				<div class="col-sm-4">
+					<input name="nome" id="idNome" value="{{ pessoa.nome }}" type="text" class="form-control"  placeholder="Nome">
+				</div>
+				<div class="col-sm-6">
+					<input name="sobrenome" id="idSobrenome" value="{{ pessoa.sobrenome }}" type="text" class="form-control"  placeholder="Sobrenome">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="idLogradouro" class="col-sm-2 control-label">Logradouro</label>
+				<div class="col-sm-5">
+					<input name="logradouro" id="idLogradouro" value="{{ pessoa.logradouro|default_if_none:'' }}" type="text" class="form-control"  placeholder="Rua">
+				</div>
+				<div class="col-sm-2">
+					<input name="numero" id="idNumero" value="{{ pessoa.numero|default_if_none:'' }}" type="text" class="form-control"  placeholder="nº">
+				</div>
+				<div class="col-sm-3">
+					<input name="bairro" id="idBairro" value="{{ pessoa.bairro|default_if_none:'' }}" type="text" class="form-control"  placeholder="Bairro">
+				</div>
+
+				<label class="col-sm-2 control-label"></label>
+				<div class="col-sm-3" style="margin-top:20px;">
+					<input name="CEP" id="idCEP" value="{{ pessoa.bairro|default_if_none:'' }}" type="text" class="form-control"  placeholder="CEP" data-mask="99999-999">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="idTelefone" class="col-sm-2 control-label">Contatos</label>
+					<div class="col-sm-5">
+						<input name="telefone" id="idTelefone" value="{{ pessoa.telefone|default_if_none:'' }}" type="text" class="form-control"  placeholder="(00) 0-0000-0000" data-mask="(99) 9-9999-9999">
+					</div>
+					<div class="col-sm-5">
+						<input name="email" id="idEmail" value="{{ pessoa.email|default_if_none:'' }}" type="email" class="form-control" placeholder="nome@dominio.com">
+					</div>
+			</div>
+
+			<div>
+				<footer class="page-header" style="padding:10px;" align="center">
+					<p>Ao clicar em <b>Criar uma conta</b><br>
+					você comcorda com nossos Termos<br>
+					e que você leu nossa <b><u><a style="color: #000000;" href="/">Política de Uso de Dados</a></u></b>.</p>
+				</footer>
+			</div>
+
+
+			<div align="center">
+				<button type="submit" class="btn btn-success">Criar uma conta</button>
+				{% if pessoa.pk > 0 %}
+				<a class="btn btn-danger" href="/pessoas/excluir/{{ pessoa.pk }}/">Excluir Registro</a>
+				{% endif %}
+			</div>
+		</form>	
+	</div>
+
+	<script type="text/javascript">
+		$('.carousel').carousel({
+			interval:5000
+		})
+	</script>
+{%endblock conteudo %}
