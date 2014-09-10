@@ -29,62 +29,138 @@
 			</section>	
 		</section>
 	</div>
+	<div class="col-sm-1" align="center">
+		<section id="MeuModal" class="modal-content modal-dialog fade" tabindex="-1" role="dialog" aria-labelledby="meuModalLabel" style="z-index: 1050; float: left; position: absolute; left:0px; display: none; top: 10%;">
+			<header class="modal-header">
+				<button class="close" data-dismiss="modal" aria-hidden="true" alt="Discordar">x</button>
+				<h3 id="meuModalLabel" class="modal-title"><b><center>Política de Uso de Dados</center><b></h3>
+			</header>
 
-	<div class="col-sm-6" align="center">
+			<section class="modal-body">
+					<div class="form-group" style="width:relative; height:300px; overflow-y: auto;">
+						<p style="text-align: justify; margin:1px 3px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+			</section>
+			<footer class="modal-footer">
+				<center>
+					<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Concordo</button>
+				</center>
+			</footer>
+		</section>
+	</div>
+	<div class="col-sm-5" align="center">
 		<header class="page-header">
 			<h1>Abra uma conta -<small> É gratuito!</small></h1>
 		</header>
-		<form class="form-horizontal" action="/usuario/salvar/" method="POST" role="form">{% csrf_token %}
+		<form class="form-horizontal" action="/usuario/salvar/" method="POST" role="form" style="margin-top:25px;">{% csrf_token %}
 
-			<input type="hidden" id="codigo" name="codigo" value="{{ pessoa.pk|default_if_none:'0' }}">
-
-			<div class="form-group">
-				<label for="idNome" class="col-sm-2 control-label">Dados Pessoais</label>
-				<div class="col-sm-4">
-					<input name="nome" id="idNome" value="{{ pessoa.nome }}" type="text" class="form-control"  placeholder="Nome">
-				</div>
-				<div class="col-sm-6">
-					<input name="sobrenome" id="idSobrenome" value="{{ pessoa.sobrenome }}" type="text" class="form-control"  placeholder="Sobrenome">
-				</div>
-			</div>
+			<input type="hidden" id="codigo" name="codigo" value="{{ usuario.pk|default_if_none:'0' }}">
 
 			<div class="form-group">
-				<label for="idLogradouro" class="col-sm-2 control-label">Logradouro</label>
 				<div class="col-sm-5">
-					<input name="logradouro" id="idLogradouro" value="{{ pessoa.logradouro|default_if_none:'' }}" type="text" class="form-control"  placeholder="Rua">
+					<input name="nome" id="idNome" value="{{ usuario.nome }}" type="text" class="form-control"  placeholder="Nome">
 				</div>
-				<div class="col-sm-2">
-					<input name="numero" id="idNumero" value="{{ pessoa.numero|default_if_none:'' }}" type="text" class="form-control"  placeholder="nº">
-				</div>
-				<div class="col-sm-3">
-					<input name="bairro" id="idBairro" value="{{ pessoa.bairro|default_if_none:'' }}" type="text" class="form-control"  placeholder="Bairro">
-				</div>
-
-				<label class="col-sm-2 control-label"></label>
-				<div class="col-sm-3" style="margin-top:20px;">
-					<input name="CEP" id="idCEP" value="{{ pessoa.bairro|default_if_none:'' }}" type="text" class="form-control"  placeholder="CEP" data-mask="99999-999">
+				<div class="col-sm-7">
+					<input name="sobrenome" id="idSobrenome" value="{{ usuario.sobrenome }}" type="text" class="form-control"  placeholder="Sobrenome">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="idTelefone" class="col-sm-2 control-label">Contatos</label>
-					<div class="col-sm-5">
-						<input name="telefone" id="idTelefone" value="{{ pessoa.telefone|default_if_none:'' }}" type="text" class="form-control"  placeholder="(00) 0-0000-0000" data-mask="(99) 9-9999-9999">
-					</div>
-					<div class="col-sm-5">
-						<input name="email" id="idEmail" value="{{ pessoa.email|default_if_none:'' }}" type="email" class="form-control" placeholder="nome@dominio.com">
-					</div>
+				<div class="col-sm-12">
+					<input name="email" id="idEmail" value="{{ pessoa.email|default_if_none:'' }}" type="email" class="form-control" placeholder="E-mail">
+				</div>
 			</div>
 
+			<div class="form-group" style="margin-bottom:25px;" >
+				<div class="col-sm-6">
+					<input name="cpf" id="idCpf" value="{{ usuario.cpf|default_if_none:'0' }}" type="text" class="form-control"  placeholder="CPF" data-mask="999.999.999-99">
+				</div>
+
+				<div class="col-sm-6">
+					<select class="form-control" name="sexo" id="idSexo" >
+						<option value="0">Sexo</option>
+						<option value="1">Feiminino</option>
+						<option value="2">Masculino</option>
+					</select>
+				</div>
+			</div>
+
+			<input type="hidden" id="status" name="status" value="{{ usuario.status|default_if_none:'2' }}">
+
+			<div class="form-group">
+				<div class="panel-title">
+					<label for="pessoa_id">Data de Nascimento</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4">
+					<select class="form-control" name="dia" id="idDia" >
+						<option value="0">Dia</option>
+						{% for dia in dias %}
+							<option value="{{ dia.dia }}">{{ dia.dia }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-sm-4">
+					<select class="form-control" name="mes" id="idMes" >
+						<option value="0">Mes</option>
+						{% for mes in meses %}
+							<option value="{{ mes.mes }}">{{ mes.mesR }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-sm-4">
+					<select class="form-control" name="ano" id="idAno" >
+						<option value="0">Ano</option>
+						{% for ano in anos %}
+							<option value="{{ ano.ano }}">{{ ano.ano }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
 			<div>
 				<footer class="page-header" style="padding:10px;" align="center">
 					<p>Ao clicar em <b>Criar uma conta</b><br>
 					você comcorda com nossos Termos<br>
-					e que você leu nossa <b><u><a style="color: #000000;" href="/">Política de Uso de Dados</a></u></b>.</p>
+					e que você leu nossa 
+					<b>
+						<u>
+							<a href="#MeuModal" role="button" data-toggle="modal" style="color: #000000;">
+								Política de Uso de Dados
+							</a>
+						</u>
+					</b>.</p>
 				</footer>
 			</div>
-
-
 			<div align="center">
 				<button type="submit" class="btn btn-success">Criar uma conta</button>
 				{% if pessoa.pk > 0 %}

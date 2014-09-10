@@ -39,6 +39,10 @@ INSTALLED_APPS = (
     'home',
     'login',
     'core',
+    'usuario',
+    'casa',
+    'moradores',
+    'telefones',
 )
 
 MIDDLEWARE_CLASSES = (
